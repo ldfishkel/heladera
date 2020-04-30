@@ -1,0 +1,24 @@
+<div [style.height.px]="50" (click)="create()" class="btn ready-recipe">
+    Listo
+</div>
+<div class="example-container">
+
+    <div class="group">      
+        <input #name type="text" required>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Name</label>
+    </div>
+    
+    <mat-selection-list style="width:100%; margin-right: 15px !important" #foods>
+        <mat-list-option class="option-box" *ngFor="let food of all" [value]="food">
+           
+            <span class="item-text">
+                {{food}}
+            </span>
+
+            <img class="item-image" src="/assets/img/{{food}}.png">
+        
+        </mat-list-option>
+      </mat-selection-list>
+</div>
