@@ -27,7 +27,7 @@ export class RecipesSheet implements OnInit
 
         this.recipes.forEach(recipe => 
         {
-            if(recipe.options.some(o => o.every(i =>  this.data.having.includes(i))))
+            if(recipe.name && recipe.options.some(o => o.every(i =>  this.data.having.includes(i))))
                 this.showing.push(recipe)
         })
     }
