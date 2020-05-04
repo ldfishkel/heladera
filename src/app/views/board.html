@@ -3,7 +3,7 @@
 		<h2 (click)="doneDisplay = 'block'; openRecipes()">Hay</h2>
 
 		<div cdkDropList [cdkDropListData]="todo" class="example-list" (cdkDropListDropped)="drop($event)">
-			<div class="example-box" *ngFor="let item of todo" [cdkDragStartDelay]="(isHandset$ | async) ? 100 : 0" cdkDrag>
+			<div class="example-box" *ngFor="let item of todo" [cdkDragStartDelay]="(isHandset$ | async) ? 75 : 0" cdkDrag>
 				<span class="item-text">
 					{{item}}
 				</span>
@@ -16,7 +16,7 @@
 		<h2 (click)="doneDisplay = 'none'">Falta</h2>
 
 		<div cdkDropList [cdkDropListData]="done" class="example-list" (cdkDropListDropped)="drop($event)">
-			<div class="example-box" *ngFor="let item of done" [cdkDragStartDelay]="(isHandset$ | async) ? 100 : 0" cdkDrag>
+			<div class="example-box" *ngFor="let item of done" [cdkDragStartDelay]="(isHandset$ | async) ? 75 : 0" cdkDrag>
 				<span class="item-text">
 					{{item}}
 				</span>
