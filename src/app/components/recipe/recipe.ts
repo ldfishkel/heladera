@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject, ViewChild } from '@angular/core'
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { MatSelectionList } from '@angular/material'
 
@@ -17,6 +17,9 @@ export class RecipeComponent implements OnInit
 
     @ViewChild("foods", { static: true })
     foods : MatSelectionList
+
+    @ViewChild("description", { static: true })
+    description : ElementRef
 
     constructor (private _route: ActivatedRoute) 
     {
@@ -43,11 +46,17 @@ export class RecipeComponent implements OnInit
         
         this.foods.selectedOptions.selected.forEach(e => option.push(e.value))
 
-
         this.selected.options.push(option)
 
         localStorage.setItem("recipes", JSON.stringify(this.recipes))
 
         this.foods.deselectAll()
+    }
+
+    saveDescription() : void 
+    {
+        this.selected.description = this.description.nativeElement.value.trim()
+
+        localStorage.setItem("recipes", JSON.stringify(this.recipes))
     }
 }

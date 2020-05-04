@@ -3,7 +3,22 @@
 <h2>{{selected.name}}</h2>
 
 <mat-accordion>
-    <mat-expansion-panel style="max-height: 300px;overflow: scroll;" *ngFor="let option of selected.options">
+
+    <mat-expansion-panel [expanded]="true" style="max-height: 300px;overflow: scroll;">
+
+        <mat-expansion-panel-header style="position: sticky;">
+
+            <mat-panel-title>Description</mat-panel-title>
+
+        </mat-expansion-panel-header>
+
+        <div (click)="saveDescription()" [style.height.px]="50" class="btn ready-recipe">Listo</div>
+
+        <textarea style="width: 100%;height: 200px;" #description>{{selected.description}}</textarea>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel style="max-height: 200px;overflow: scroll;" *ngFor="let option of selected.options">
 
         <mat-expansion-panel-header>
 
